@@ -1,0 +1,60 @@
+## Cluster
+PROVIDER: aws
+CLUSTER_NAME: sasviya4aws
+NAMESPACE: sasviya4aws
+
+## MISC
+DEPLOY: true # Set to false to stop at generating the manifest
+
+#LOADBALANCER_SOURCE_RANGES: ['<cluster_nat_ip>/32']
+LOADBALANCER_SOURCE_RANGES: ["149.173.0.0/16", "71.135.0.0/16"]
+# Spexify the usual CIDR ranges assigned to SAS
+
+## Storage - we let the tool create the SC for us
+V4_CFG_MANAGE_STORAGE: true
+#JUMP_SVR_RWX_FILESTORE_PATH: /volumes
+
+## JUMP VM ACCESS TO PREPARE NFS DIRECTORIES
+# JUMP_SVR_PRIVATE_KEY: '/config/jump_svr_private_key'
+
+## SAS API Access
+V4_CFG_SAS_API_KEY: 'otHGJtno8QGTqys9vRGxmgLOCnVsHWG2'
+V4_CFG_SAS_API_SECRET: 'banKYbGZyNkDXbBO'
+V4_CFG_ORDER_NUMBER: 9CKY1V
+
+## CR Access
+# V4_CFG_CR_USER: 'q-e8nF-00rzvyZ'
+# V4_CFG_CR_PASSWORD: 'UWLPIymFYSD9adQAt4e5e-whOWA3_y0O.ZtxKc0txYWW6viF-HHw9aifW1LJx0otOYGEsN3TZVlvW1NfSJKQ'
+
+## Ingress
+V4_CFG_INGRESS_TYPE: ingress
+V4_CFG_INGRESS_FQDN: "sinbrv.gelsandbox.aws.unx.sas.com"
+V4_CFG_TLS_MODE: "disabled" # [full-stack|front-door|disabled]
+
+## Postgres
+V4_CFG_POSTGRES_TYPE: internal
+
+## LDAP
+V4_CFG_EMBEDDED_LDAP_ENABLE: true
+
+## Consul UI
+#V4_CFG_CONSUL_ENABLE_LOADBALANCER: false
+
+## SAS/CONNECT
+V4_CFG_CONNECT_ENABLE_LOADBALANCER: false
+
+## Cadence and version
+V4_CFG_CADENCE_NAME: 'stable'
+V4_CFG_CADENCE_VERSION: '2021.2.5'
+
+## CAS Configuration
+V4_CFG_CAS_WORKER_COUNT: '2'
+V4_CFG_CAS_ENABLE_BACKUP_CONTROLLER: false
+V4_CFG_CAS_ENABLE_LOADBALANCER: true
+
+# Monitoring and logging tools
+V4M_BASE_DOMAIN: "sinbrv.gelsandbox.aws.unx.sas.com"
+
+# allow ELASTIC SEARCH to be properly configured
+V4_CFG_ELASTICSEARCH_ENABLE: true
+

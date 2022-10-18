@@ -1,0 +1,7 @@
+apiVersion: builtin
+kind: ConfigMapGenerator
+metadata:
+ name: sas-cas-config
+behavior: merge
+literals:
+ - CAS_NODE_CONNECT_TIMEOUT=1800
